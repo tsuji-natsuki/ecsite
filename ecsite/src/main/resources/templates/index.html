@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Session サンプル</title>
+</head>
+<body>
+<form action=“./hello" method=“post">
+ <input type="text" name="userName" /><br />
+ <input type="text" name="password" /><br />
+ <button type="submit">Login</button>
+</form>
+<p th:if="${loginSession.getUserName() != null and loginSession.getPassword() != null}">ログインしています。</p>
+</body>
+</html>
