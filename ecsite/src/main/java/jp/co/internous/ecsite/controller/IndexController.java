@@ -45,9 +45,9 @@ public class IndexController {
 		
 		return "index";
 	}
-@ResponseBody
-@PostMapping("/api/login")
-public String loginApi(@RequestBody LoginForm f) {
+    @ResponseBody
+    @PostMapping("/api/login")
+    public String loginApi(@RequestBody LoginForm f) {
 	MstUser user = userMapper.findByUserNameAndPassword(f);
 	
 	if (user == null) {
@@ -57,9 +57,9 @@ public String loginApi(@RequestBody LoginForm f) {
 	return gson.toJson(user);
 	}
 
-@ResponseBody
-@PostMapping("/api/purchase")
-public int purchaseApi(@RequestBody CartForm f) {
+    @ResponseBody
+    @PostMapping("/api/purchase")
+    public int purchaseApi(@RequestBody CartForm f) {
 	
 	f.getCartList().forEach((c) -> {
 		int total = c.getPrice() * c.getCount();
@@ -68,9 +68,9 @@ public int purchaseApi(@RequestBody CartForm f) {
 	
 	return f.getCartList().size();
 }
-@ResponseBody
-@PostMapping("/api/history")
-public String historyApi(@RequestBody HistoryForm f) {
+    @ResponseBody
+    @PostMapping("/api/history")
+    public String historyApi(@RequestBody HistoryForm f) {
 	int userId = f.getUserId();
 	List<HistoryDto> history = purchaseMapper.findHistory(userId);
 	
